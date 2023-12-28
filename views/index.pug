@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1= title
+  p Bienvenido a #[strong Game Base], el lugar donde puedes encontrar y guardar todos tus juegos favoritos.
+
+  p La Base de Datos contiene lo siguiente: 
+
+  ul(class='list-group')
+    li(class='list-group-item') #[strong Juegos:] !{game_count}
+    li(class='list-group-item') #[strong Categorías:] !{category_count}

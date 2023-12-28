@@ -1,0 +1,22 @@
+extends layout
+
+block content
+
+  h1 #{title}
+  p(class='mb-4') ¿Estás seguro de querer eliminar este juego?
+
+  h3 #{game.name}
+  p  #{game.description} 
+  p #[strong Categoría:] 
+    each category, index in game.category
+        a(href=category.url) #{category.name}
+            if index < game.category.length - 1
+                |,&nbsp;
+  p #[strong Precio:] $#{game.price}
+  p #[strong Cantidad:] #{game.number_of_items} 
+
+    form(method='POST')
+      div.form-group
+        input#gameid.form-control(type='hidden', name='gameid', value=game._id )
+
+      button.btn.btn-primary(type='submit') Eliminar

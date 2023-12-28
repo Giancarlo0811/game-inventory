@@ -1,0 +1,18 @@
+extends layout
+
+block content
+
+  h1(class='mb-4') #{title}
+  p= game.description
+  p #[strong Categoría:] 
+    each category, index in game.category 
+        a(href=category.url) #{category.name}
+            if index < game.category.length - 1
+                |,&nbsp; 
+  p #[strong Precio:] $#{game.price}
+  p #[strong Cantidad:] #{game.number_of_items}
+  br
+  p
+  a(href=game.url+'/delete') Eliminar Juego
+  p
+  a(href=game.url+'/update') Actualizar Juego

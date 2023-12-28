@@ -1,0 +1,11 @@
+extends layout 
+
+block content 
+    h1(class='mb-4')= title 
+    if game_list.length
+        ul(class='list-group')
+            each game in game_list 
+                li(class='list-group-item')
+                    a(href=game.url) #{game.name}
+    else
+        p No hay juegos. 

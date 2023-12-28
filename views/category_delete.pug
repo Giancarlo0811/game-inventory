@@ -1,0 +1,25 @@
+extends layout
+
+block content
+
+  h1 #{title}: #{category.name}
+
+  if category_games.length
+
+    p #[strong Elimina los siguientes juegos para poder eliminar esta categoría]
+    div(style='margin-left:20px;margin-top:20px')
+      h3(class='mb-4') Juegos
+        each game in category_games
+          h4
+            a(href=game.url) #{game.name}
+          p #{game.description}
+          hr
+
+  else
+    p ¿Estás seguro de querer eliminar esta categoría?
+
+    form(method='POST')
+      div.form-group
+        input#categoryid.form-control(type='hidden', name='categoryid', value=category._id )
+
+      button.btn.btn-primary(type='submit') Eliminar
